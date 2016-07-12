@@ -56,13 +56,20 @@ HH2Import <- function(filename, sensor.type) {
    }
    
    # import the HH2 file as csv file
-   imported <- read.csv(filename, skip = skip.line)
+   imported <- utils::read.csv(filename, skip = skip.line)
    
    # replace the header with the special characters replaced
    names(imported) <- c(names(imported)[1:4], specific.names)
 
    # format the "Time" column
-   imported$Time <- as.POSIXct(imported$Time, format = "%d/%m/%Y %H:%M")
+   # the handheld reader is not consistent: sometimes the time is provided with seconds,
+   # sometime there are no seconds
+   
+   if (is.na(as.POSIXct(imported$Time[1], format = "%d/%m/%Y %H:%M:%S"))) {
+      imported$Time <- as.POSIXct(imported$Time, format = "%d/%m/%Y %H:%M")
+      } else {
+      imported$Time <- as.POSIXct(imported$Time, format = "%d/%m/%Y %H:%M:%S")
+      }
    
    # split the data frame per sensor depth
    # based on column names
