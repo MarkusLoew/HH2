@@ -15,7 +15,7 @@ for details on the functions provided by this package.
 Installation straight from github (if package "devtools" is already installed) via
 
 ```{r}
-install_github("MarkusLoew/AgFace/packages/HH2")
+devtools::install_github("MarkusLoew/HH2")
 ```
 
 Installation under Windows might require the installation of Rtools. There will be a prompt for it if needed.
