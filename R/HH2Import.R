@@ -4,6 +4,7 @@
 #' @param filename The name of the file to be imported. Character string.
 #' @param sensor.type Either \code{"PR2"} for soil mositure profile probe or \code{"ML3"} for TDR. Other values are not allowed.
 #' @return Returns a data frame with the elements Time, Sample, Plot, Device, Depth, Percent_Vol, Vol_Error, mV, mV_Error.
+#' @export
 
 HH2Import <- function(filename, sensor.type) {
    # filename: character string, path and filename of the HH2 file
