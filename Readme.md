@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MarkusLoew/HH2.svg?branch=master)](https://travis-ci.org/MarkusLoew/HH2)
+
 HH2
 ==============
 
